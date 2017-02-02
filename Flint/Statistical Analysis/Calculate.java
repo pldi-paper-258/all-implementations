@@ -2,6 +2,7 @@ package statistics;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -64,8 +65,10 @@ public class Calculate {
 		return flat$13;
 	}
 	
-	public static List<Double> multiply(List<Double> a, double b) {
-		List<Double> temp = new ArrayList<Double>();
+	public static double[] multiply(List<Double> a, double b) {
+		int flat$1 = a.size();
+		double[] temp = null;
+		temp = (new double[flat$1]);
 		{
 			int i = 0;
 			i = 0;
@@ -84,13 +87,20 @@ public class Calculate {
 				}
 			});
 			
-			temp = mapEmits.collect();
+			List<Double> output_rdd_0_0 = mapEmits.collect();
+			int casper_index=0;
+			for(Double output_rdd_0_0_v : output_rdd_0_0){
+				temp[casper_index] = output_rdd_0_0_v;
+				casper_index++;
+			}
 		}
 		return temp;
 	}
 	
-	public static List<Double> multiply(List<Double> a, List<Double> b) {
-		List<Double> temp = new ArrayList<Double>();
+	public static double[] multiply(List<Double> a, List<Double> b) {
+		int flat$1 = a.size();
+		double[] temp = null;
+		temp = (new double[flat$1]);
 		{
 			int i = 0;
 			i = 0;
@@ -110,7 +120,12 @@ public class Calculate {
 				}
 			});
 			
-			temp = mapEmits.collect();
+			List<Double> output_rdd_0_0 = mapEmits.collect();
+			int casper_index=0;
+			for(Double output_rdd_0_0_v : output_rdd_0_0){
+				temp[casper_index] = output_rdd_0_0_v;
+				casper_index++;
+			}
 		}
 		return temp;
 	}

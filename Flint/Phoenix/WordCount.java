@@ -55,7 +55,8 @@ public class WordCount {
 				}
 			});
 			
-			counts = reduceEmits.collectAsMap();
+			Map<String, Integer> output_rdd_0_0 = reduceEmits.collectAsMap();
+			counts = output_rdd_0_0;
 		}
 		return counts;
 	}
